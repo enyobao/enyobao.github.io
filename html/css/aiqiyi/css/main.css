@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+
+.cholid{ width:980px; margin:0 auto; margin-top:36px;}
+.cholid li{ float:left;}
+.cleft{ width:580px; float:left; margin-right:20px;} 
+.ccenter,cright{ width:180px; float:left;}
+.ccenter{ margin-right:20px;}
+cright{ margin-right:0px;}
+.cone{ height:287px; float:left; margin-right:20px; position:relative;}
+.cholid h3{ background:url(../img/ccon.jpg) no-repeat left; font-size:26px; color:#679f00; font-weight:normal; padding-left:20px; height:50px; line-height:50px; border-bottom:2px solid #679f00; margin-bottom:25px;}
+.copa{ background:url(../img/cimg.jpg) no-repeat; width:380px; height:252px;}
+.cholid h3 a{color:#679f00; padding-left:11px;}
+.cholid h3 a.clink{ color:#323234; padding-left:24px;}
+.cholid h3 a.clink1{ color:#323234; padding-left:0px; background:url(../img/ccc.jpg) no-repeat left; padding-left:26px;}
+.copabg{ width:42px; height:16px; background:#000;opacity:0.5;filter:alpha(opacity:50); position:absolute; left:4px;top:232px;}
+.cone b{ color:#FFF; text-align:center; line-height:16px; position:absolute; left:4px;top:232px;}
+.copabottom,.ctwo-1 .ctext{ height:34px; background-color:#f2f2f2; border-bottom:1px solid #ebebeb;}
+.copabottom p,.ctwo-1 .ctext{ font-size:14px; line-height:34px; padding-left:15px; color:#333333;}
+.ctwo{ width:180px; float:left;}
+.ctwo-1{ height:136px; margin-bottom:15px;}
+.clii{ height:101px; vertical-align:top;}
+.ctwo-1 .ctext{ width:165px;}
+.ccenter h3,.cright h3{ width:160px; float:left;}
+.ccenter .ctext{ margin-bottom:15px;}
+.cright .ctext{ margin-bottom:15px;}
+.cty{ width:980px; margin:0 auto; margin-top:18px; margin-bottom:36px;}
+.cty-one,.cty-two,.cty-three{ float:left;}
+.cty-one,.cty-two{ width:380px; margin-right:20px;}
+.cty-three{ width:180px;}
+.cty h3{ background:url(../img/ccon.jpg) no-repeat left; font-size:26px; color:#679f00; font-weight:normal; padding-left:20px; height:50px; line-height:50px; border-bottom:2px solid #679f00; margin-bottom:25px;}
+.cty-one a{ color:#679f00; padding-left:10px;}
+.cty-one .ca{color:#323234; padding-left:0px; background:url(../img/ccc.jpg) no-repeat left; padding-left:26px;}
+.cty-1{ float:left; position:relative; margin-right:20px; margin-bottom:15px;}
+.cty-opa{ width:42px; height:16px; background:#000;opacity:0.5;filter:alpha(opacity:50); position:absolute; left:4px;top:80px;}
+.cty-text{position:absolute; left:4px;top:80px; color:#FFF;}
+.cty-last{ background-color:#f2f2f2;height:34px;border-bottom:1px solid #ebebeb; line-height:34px; padding-left:10px; width:170px;}
+.cty-12{ margin-right:0px; }
+.cty-123{ margin-bottom:0px;}
+.cty-two1{ float:left; margin-right:20px;}
+.cty-two a,.cty-three a{ color:#679f00; padding-left:15px;}
+
+.cty-three .cty-two1{ margin-right:0px;}
+.car{ margin-bottom:0px;}
+.cty h3 .ca1{ background-image:none;}

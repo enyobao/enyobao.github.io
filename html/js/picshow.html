@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多图片展示</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;x
+		}
+		ul{
+			height: 160px;
+			margin:100px auto;
+			position: relative;
+			overflow: hidden;
+			border:1px solid #000;
+		}
+		li{
+			list-style: none;
+			width: 256px;
+			height: 160px;
+			position: absolute;
+			left:0;
+			top:0;
+		}
+		img{
+			width: 100%;
+			vertical-align: top;
+		}
+	</style>
+	<script type="text/javascript" src="../../js/fn.js"></script>
+	<!--'./'表示当前文件夹，‘../’表示上一层文件夹-->
+	<script>
+		window.onload=function(){
+			var oUl=document.getElementById('ul1');
+			var aLi=oUl.children;
+
+			//布局
+			var W=30;
+			oUl.style.width=aLi[0].offsetWidth+W*(aLi.length-1)+'px';
+			for(var i=1;i<aLi.length;i++){
+				aLi[i].style.left=aLi[i].offsetWidth+(i-1)*W+'px';
+			}
+
+			//事件
+			for(var i=0;i<aLi.length;i++){
+				aLi[i].index=i;
+				aLi[i].onmouseenter=function(){
+					for(var i=0;i<aLi.length;i++){
+						//被点击的li以及其前面的li，都要向前进
+						if(i<=this.index){
+							move(aLi[i],{left:W*i});
+						}else{
+							//被点击的li后面的li，都要向后退，left回到初始值
+							move(aLi[i],{left:aLi[i].offsetWidth+(i-1)*W});
+						}
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id="ul1">
+		<li><img src="img/img2/1.jpg"></li>
+		<li><img src="img/img2/2.jpg"></li>
+		<li><img src="img/img2/3.jpg"></li>
+		<li><img src="img/img2/4.jpg"></li>
+		<li><img src="img/img2/5.jpg"></li>
+		<li><img src="img/img2/6.jpg"></li>
+		<li><img src="img/img2/7.jpg"></li>
+		<li><img src="img/img2/8.jpg"></li>
+		<li><img src="img/img2/9.jpg"></li>
+		<!-- <li><img src="img/img2/10.jpg"></li>
+		<li><img src="img/img2/11.jpg"></li>
+		<li><img src="img/img2/12.jpg"></li>
+		<li><img src="img/img2/13.jpg"></li>
+		<li><img src="img/img2/14.jpg"></li>
+		<li><img src="img/img2/15.jpg"></li>
+		<li><img src="img/img2/16.jpg"></li>
+		<li><img src="img/img2/17.jpg"></li>
+		<li><img src="img/img2/18.jpg"></li>
+		<li><img src="img/img2/19.jpg"></li>
+		<li><img src="img/img2/20.jpg"></li>
+		<li><img src="img/img2/21.jpg"></li>
+		<li><img src="img/img2/22.jpg"></li>
+		<li><img src="img/img2/23.jpg"></li>
+		<li><img src="img/img2/24.jpg"></li>
+		<li><img src="img/img2/25.jpg"></li>
+		<li><img src="img/img2/26.jpg"></li> -->
+	</ul>
+</body>
+</html>

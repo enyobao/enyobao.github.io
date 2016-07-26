@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜</title>
+	<style>
+		.box{
+			margin:20px;
+			overflow: hidden;
+		}
+		.box div{
+			position: relative;
+			float: left;
+			width: 350px;
+			height: 350px;
+			border:1px solid #000;
+		}
+		#big{
+			margin-left:40px;
+			overflow: hidden;
+			display: none;
+		}
+		.box span{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100px;
+			height: 100px;
+			background: yellow;
+			opacity: 0.4;
+			filter: alpha(opacity:40);
+			display: none;
+		}
+		#big img{
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+	<script>
+		function getPos(obj){
+			var l=0;
+			var t=0;
+			while(obj){
+				l+=obj.offsetLeft;
+				t+=obj.offsetTop;
+				obj=obj.offsetParent;
+			}
+			return { left : l , top : t };
+		}
+		window.onload=function(){
+			var oBox=document.getElementById('box');
+			var oSmall=document.getElementById('small');
+			var oBig=document.getElementById('big');
+			var oSpan=oSmall.children[1];
+			var oImg=oBig.children[0];
+
+			//移入
+			oSmall.onmouseover=function(){
+				oBig.style.display='block';
+				oSpan.style.display='block';
+			}
+			//移动
+			oSmall.onmousemove=function(ev){
+				var oEvent=ev||event;
+				var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+				var scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft;
+				//oEvent.clientX--获取可视区域x轴坐标，所以需要加上滚动条滚动的距离，才会等于物体距离最左侧的距离
+				/*因为oEvent.clientX获取的是整个可视区域中的x轴位置，所以物体父集的left值会影响物体的位置，所以要减去父级的left值*/
+				var left=oEvent.clientX-oSpan.offsetWidth/2+scrollLeft-getPos(oSmall).left;
+				var top=oEvent.clientY-oSpan.offsetHeight/2+scrollTop-getPos(oSmall).top;
+
+				//控制ospan的位置在osmall中
+				var width1=oSmall.offsetWidth-oSpan.offsetWidth;//ospan的可移动位置
+				var height1=oSmall.offsetHeight-oSpan.offsetHeight;//ospan的可移动位置
+				if(left<=0){
+					left=0;
+				}
+				if(top<=0){
+					top=0;
+				}
+				if(left>=width1){
+					left=width1;
+				}
+				if(top>=height1){
+					top=height1;
+				}
+				// 给ospan的left和top赋值
+				oSpan.style.left=left+'px';
+				oSpan.style.top=top+'px';
+
+				//ospan移动时，oimg也同步移动
+				//获取oimg的可移动位置
+				var width2=oImg.offsetWidth-oBig.offsetWidth;
+				var height2=oImg.offsetHeight-oBig.offsetHeight;
+
+
+				//赋值oimg的left和top
+				var left2=-left/width1*width2;
+				var top2=-top/height1*height2;
+				oImg.style.left=left2+'px';
+				oImg.style.top=top2+'px';
+			}
+			//移出
+			oSmall.onmouseout=function(){
+				oBig.style.display='none';
+				oSpan.style.display='none';
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="box" id="box">
+		<div id="small">
+			<img src="img/small.jpg">
+			<span></span>
+		</div>
+		<div id="big">
+			<img src="img/big.jpg">
+		</div>
+	</div>
+</body>
+</html>

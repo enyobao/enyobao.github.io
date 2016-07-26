@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图-连点</title>
+	<script type="text/javascript" src="../../js/fn.js"></script>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			list-style: none;
+		}
+		#box{
+			width: 600px;
+			height: 400px;
+			border:1px solid #000;
+			position: absolute;
+			left:300px;
+			top:50px;
+			overflow: hidden;
+		}
+		ul{
+			position: relative;
+		}
+		ul li{
+			width: 600px;
+			height: 400px;
+			float: left;
+			position: absolute;
+			left:600px;
+			top:0;
+		}
+		ul li.active{
+			left: 0;
+		}
+		ol{
+			position: absolute;
+			left:200px;
+			bottom:10px;
+			width: 160px;
+		}
+		ol li{
+			width: 20px;
+			height: 20px;
+			background: #fff;
+			float: left;
+			margin:10px;
+			border-radius:50%;
+		}
+		ol li.active{
+			background: blue;
+		}
+		a{
+			text-decoration: none;
+			position: absolute;
+			top:200px;
+			width: 40px;
+			height: 50px;
+			background: rgba(255,0,0,0.7);
+			font-size: 20px;
+			line-height: 50px;
+			text-align: center;
+			z-index: 999;
+		}
+		#left{
+			left:0;
+		}
+		#right{
+			right: 0px;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var oBox=document.getElementById('box');
+			var oLeft=document.getElementById('left');
+			var oRight=document.getElementById('right');
+			var oUl=document.getElementById('ul1');
+			var oOl=document.getElementById('ol1');
+			var aLi=oUl.children;
+			var aLi2=oOl.children;
+
+			var width=aLi[0].offsetWidth;
+			var iNow=0;
+			//向右
+			oRight.onclick=prev;
+			//向左
+			oLeft.onclick=next;
+			function next(){
+				//当前这张向左走
+				move(aLi[iNow],{left:-width});
+				iNow++;
+				
+				if(iNow>aLi.length-1){
+					iNow=0;
+				}
+				//下一张到右边做准备
+				aLi[iNow].style.left=width+'px';
+				//下一张移动到box中
+				move(aLi[iNow],{left:0});
+				tab();
+
+			}
+			function prev(){
+				move(aLi[iNow],{left:width});
+
+				iNow--;
+				if(iNow<0){
+					iNow=aLi.length-1;
+				}
+				//上面一张到左边准备
+				aLi[iNow].style.left=-width+'px';
+				//上一张移动奥box中
+				move(aLi[iNow],{left:0});
+				tab();
+			}
+			//圆圈－－ol
+			function tab(){
+				for(var i=0;i<aLi2.length;i++){
+					aLi2[i].className='';
+				}
+				aLi2[iNow].className='active';
+			}
+			//点击圆点－－－点击ol中的li
+			for(var i=0;i<aLi2.length;i++){
+				aLi2[i].index=i;
+				aLi2[i].onclick=function(){
+					//左边
+					if(this.index<iNow){
+						move(aLi[iNow],{left:width});
+						aLi[this.index].style.left=-width+'px';
+						move(aLi[this.index],{left:0});
+					}
+					//右边
+					if(this.index>iNow){
+						move(aLi[iNow],{left:-width});
+						aLi[this.index].style.left=width+'px';
+						move(aLi[this.index],{left:0});
+					}
+					iNow=this.index;
+					tab();
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<a href="javascript:;" id="left">👈</a>
+		<a href="javascript:;" id="right">👉</a>
+		<ul id="ul1">
+			<li class="active"><img src="img2/0.jpg"></li>
+			<li><img src="img2/1.jpg"></li>
+			<li><img src="img2/2.jpg"></li>
+			<li><img src="img2/3.jpg"></li>
+		</ul>
+		<ol id="ol1">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ol>
+	</div>
+</body>
+</html>

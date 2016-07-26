@@ -1,0 +1,38 @@
+*{
+	margin:0;
+	padding: 0;
+}
+h1,h2,h3,h4,h5,h6,{
+	font-weight: normal;
+}
+a{
+	text-decoration: none;
+	color: #000;
+}
+a img{
+	border: none;
+}
+ul,li,ol,dl,dd,dt{
+	margin:0;
+	padding:0;
+}
+li{
+	list-style: none;
+}
+img{
+	vertical-align: top;
+}
+em,i{
+	font-style: normal;
+}
+.clearfix:after{
+	display: block;
+	content: '';
+	clear: both;
+}
+.clearfix{
+	zoom:1;
+}
+.b_non{
+	border: none;
+}

@@ -1,0 +1,27 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+h1,h2,h3,h4,h5,h6,b,strong{
+	font-weight: normal;
+}
+a img{
+	border:none;
+}
+ul,li,dl,ol,dt,dd{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: #000;
+}
+img{
+	vertical-align: top;/*清除图片3像素留白问题*/
+}
+em,i{
+	font-style: normal;
+}

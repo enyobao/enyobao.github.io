@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>分布运动</title>
+	<script type="text/javascript" src="../../js/fn.js"></script>
+	<style>
+		span{
+			color: #fff;
+			font-size: 20px;
+			line-height: 30px;
+			opacity: 0;
+		}
+		body{
+			background: #000;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var str='科技创新、科学普及是实现创新发展的两翼。希望你们以建馆百年为新起点，不忘初心、与时俱进，以提高全民科学素质为己任，以真诚服务青少年为重点，更好发挥地学研究基地、科普殿堂的作用，努力把中国地质博物馆办得更好、更有特色，为建设世界科技强国、实现中华民族伟大复兴的中国梦再立新功。科技创新、科学普及是实现创新发展的两翼。希望你们以建馆百年为新起点，不忘初心、与时俱进，以提高全民科学素质为己任，以真诚服务青少年为重点，更好发挥地学研究基地、科普殿堂的作用，努力把中国地质博物馆办得更好、更有特色，为建设世界科技强国、实现中华民族伟大复兴的中国梦再立新功。';
+
+			var timer;
+
+			//根据str的长度，创建span，并将每一个字符分别单独赋给一个span
+			for(var i=0;i<str.length;i++){
+				var oSpan=document.createElement('span');
+				oSpan.innerHTML=str.charAt(i);
+				document.body.appendChild(oSpan);
+			}
+
+			var aSpan=document.getElementsByTagName('span');
+			var iCount=0;//计步器
+			timer=setInterval(function(){
+				//每过200毫秒，让一个span显示
+				move(aSpan[iCount],{'opacity':1});
+
+				iCount++;
+				//当显示完所有字符之后，停止计时器	
+				if(iCount==aSpan.length){
+					clearInterval(timer);
+				}
+			},200);
+
+		}
+	</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图－立体</title>
+	<style>
+		*{
+			margin:0;
+			padding: 0;
+			list-style: none;
+		}
+		#ul1{
+			position: absolute;
+			left: 50%;
+			top:30%;
+			margin-left: -200px;
+			width:400px;
+			height: 300px;
+			perspective:800px;
+		}
+		li{
+			position: absolute;
+			left: 0;
+			top:0;
+			width:400px;
+			height: 300px;
+			margin:10px;
+			background: pink;
+			color: #fff;
+			font-size: 100px;
+			line-height: 300px;
+			text-align: center;
+			opacity: 0;
+			transition: 1s all linear;
+		}
+		li.cur{
+			opacity: 1;
+		}
+		li.l1{
+			opacity: .6;
+			transform: translate(-250px) rotateY(60deg);
+		}
+		li.l2{
+			transform: translate(-400px) rotateY(80deg);
+		}
+		li.r1{
+			opacity: .6;
+			transform: translate(250px) rotateY(-60deg);
+		}
+		li.r2{
+			transform: translate(400px) rotateY(-80deg);
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var oUl=document.querySelector('#ul1');
+			var aLi=oUl.children;
+			var oLeft=document.querySelectorAll('input')[0];
+			var oRight=document.querySelectorAll('input')[1];
+			var arr=[];
+
+			for(var i=0;i<aLi.length;i++){
+				arr.push(aLi[i].className);
+			}
+
+			oLeft.onclick=function(){
+				arr.unshift(arr.pop());
+				for(var i=0;i<aLi.length;i++){
+					aLi[i].className=arr[i];
+				}
+			}
+			oRight.onclick=function(){
+				arr.push(arr.shift());
+				for(var i=0;i<aLi.length;i++){
+					aLi[i].className=arr[i];
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div>
+		<input type="button" value="prev">
+		<input type="button" value="next">
+	</div>
+	<ul id="ul1">
+		<li class="l2">1</li>
+		<li class="l1">2</li>
+		<li class="cur">3</li>
+		<li class="r1">4</li>
+		<li class="r2">5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,51 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+h1,h2,h3,h4,h5,h6{
+	font-weight: normal;
+}
+i,em{
+	font-style: normal;
+}
+a{
+	text-decoration: none;
+	color: #000;
+}
+a img{
+	border: 0;
+}
+img{
+	vertical-align: top;
+}
+ul,li,ol,dl,dd,dt{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+textarea,input{
+	outline: none;/*取消文本域和输入框获得焦点时的边缘*/
+}
+table{
+	border-collapse: collapse;/*边框塌陷*/
+}
+th,td{
+	padding: 0;
+	border: 1px solid #000;
+}
+.clearfix:after{
+	display: block;
+	content: '';
+	clear: both;
+}
+.clearfix{
+	zoom:1;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}

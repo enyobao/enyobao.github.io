@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>瀑布流</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		ul{
+			width: 250px;
+			border:1px solid #000;
+			float: left;
+			margin:40px;
+		}
+		li{
+			width: 210px;
+			margin:20px;
+			list-style: none;
+		}
+	</style>
+	<script>
+		//随机函数
+		function rnd(n,m){
+			return parseInt(Math.random()*(m-n)+n);
+		}
+		//比较函数，获取内容长度最小的值
+		function compare(aUl){
+			//获取3个ul的内容长度
+			var h1=aUl[0].offsetHeight;
+			var h2=aUl[1].offsetHeight;
+			var h3=aUl[2].offsetHeight;
+			//比较3个ul内容长度，并获取最小值
+				//h1<h2
+			if(h1<h2){
+				//h1<h2
+				//h1<h3
+				if(h1<h3){
+					iMin=aUl[0];
+				}else{
+					//h1<h2
+					//h3<h1
+					iMin=aUl[2];
+				}
+			}else{
+				//h2<h1
+				//h2<h3
+				if(h2<h3){
+					iMin=aUl[1];
+				}else{
+					//h2<h1
+					//h3<h2
+					iMin=aUl[2];
+				}
+			}
+			return iMin;
+		}
+		//创建li函数
+		function createLi(){
+			//创建li
+			var oLi=document.createElement('li');
+			//li背景颜色赋值
+			oLi.style.background='rgb('+rnd(0,256)+','+rnd(0,256)+','+rnd(0,256)+')';
+			//li高度随机赋值
+			oLi.style.height=rnd(100,500)+'px';
+			//给长度最小的ul添加最新创建的li
+			return oLi;
+		}
+		window.onload=function(){
+			//获取obox
+			var oBox=document.getElementById('box');
+			//var aUl=oBox.children;
+			//获取所有ul元素
+			var aUl=oBox.getElementsByTagName('ul');
+			//定义iMin变量，将用于盛放长度最小的ul值
+			var iMin=null;
+			
+			//添加li到内容最短的ul
+			function insertLi(){
+				//给ul添加li内容
+				for(var i=0;i<20;i++){
+					var oLi=createLi();
+					compare(aUl).appendChild(oLi);
+				}
+			}
+			
+			insertLi();
+
+			//窗口滚动事件
+			window.onscroll=function(){
+				//滚动条滚动的长度
+				var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+				//可视区域高度
+				var clientH=document.documentElement.clientHeight;
+				//滚动底部长度
+				var scrollBottom=scrollTop+clientH;
+				//页面的高度
+				var scale=document.body.scrollHeight;
+
+				/***获取页面高度的方法***/
+				/*
+					var scale=document.body.offsetHeight;(用此方法时，页面会无限加载，不会找到页面底部)
+					var scale=document.body.scrollHeight;（能找到页面底部，并且进行下一步）
+				*/
+
+				//当页面高度等于滚动底部长度时，即页面已经到达底部，所以重新加载更多li－－－提高用户体验
+				//页面高度－500（即scale-500）：防止加载到底部时有空白出现，影响用户体验
+				if(scrollBottom>=scale-500){
+					insertLi();
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+	</div>
+</body>
+</html>

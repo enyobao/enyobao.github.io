@@ -1,0 +1,198 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-family: 'Macrosoft Yahei';
+}
+html{
+	font-size: 20px;
+}
+.wrap{
+	width: 16rem;
+	font-size: 0.6rem;
+	color: #7c7c7c;
+}
+header{
+	width: 16rem;
+	height: 3rem;
+	background: #344a61;
+}
+header span{
+	display: block;
+	width: 3rem;
+	height: 3rem;
+	float: left;
+	text-align: center;
+}
+header img{
+	width: 1rem;
+	height: 0.675rem;
+	margin: 1.1625rem 0;
+}
+header h2{
+	float: left;
+	height: 3rem;
+	width: 10rem;
+	text-align: center;
+	line-height: 3rem;
+	box-sizing: border-box;
+	border-left: 2px solid #455b72;
+	border-right: 2px solid #455b72;
+	color: #fbfffd;
+}
+.container{
+	padding: 0 1rem;
+	width: 14rem;
+}
+.container h3{
+	height: 2.1rem;
+	width: 14rem;
+	line-height: 2.1rem;
+	font-size: 0.4rem;
+	color: #cbcbcb;
+	border-bottom: 2px solid #cbcbcb;
+	margin-bottom: 1rem;
+}
+.computer{
+	width: 14rem;
+}
+.well{
+	padding: 0.5rem 0 1rem;
+	width: 14rem;
+	font-size: 0.45rem;
+	border-bottom: 2px solid #cbcbcb;
+}
+.well h4{
+	font-family: '黑体';
+	height: 2rem;
+	line-height: 2rem;
+	color: #000;
+	font-size: 0.5rem;
+	font-weight: bold;
+}
+.well p{
+	position: relative;
+	font-weight: normal;
+	font-size: 0.45rem;
+	line-height: 1rem;
+}
+.well li{
+	width: 14rem;
+}
+.well li img{
+	display: block;
+	margin: 0.5rem 1rem 0.5rem 0;
+	width: 4rem;
+	height: 4rem;
+	float: left;
+}
+.well li div{
+	position: relative;
+	margin-top: 0.5rem;
+	float: left;
+	width: 9rem;
+}
+.well li h4{
+	position: relative;
+	height: 1rem;
+	line-height: 1rem;
+}
+.well li h5{
+	position: absolute;
+	right: 0;
+	bottom: -1rem;
+	height: 1rem;
+	line-height: 1rem;
+}
+.pic{
+	padding-bottom: 0.5rem;
+}
+.work{
+	width: 14rem;
+	margin-bottom: 0.5rem;
+}
+.work a{
+	display: block;
+	float: left;
+	margin-top: 1rem;
+}
+.work img{
+	display: block;
+	height: 4rem;
+}
+.work a.center{
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+div.center h4{
+	text-align:center;
+}
+div.center p{
+	text-align: center;
+}
+.con{
+	width: 14rem;
+	text-align: center;
+	padding-top: 1rem;
+}
+.con img{
+	width: 2.5rem;
+	height: 2.5rem;
+}
+.con img.center{
+	margin: 0 1rem;
+}
+ol{
+	padding: 1rem 0;
+}
+ol li{
+	width: 14rem;
+	height: 1rem;
+	text-align: center;
+	font-size: 0.4rem;
+	color: #9c9c9c;
+	line-height: 1rem;
+}
+footer{
+	height: 3rem;
+	width: 16rem;
+	background: #000;
+}
+footer li{
+	width: 1rem;
+	height: 1rem;
+	padding: 0.5rem;
+	float: left;
+}
+footer li img{
+	width: 1rem;
+	height: 1rem;
+}
+footer h3{
+	width: 16rem;
+	height: 0.375rem;
+	font-size: 0.375rem;
+	line-height: 0.375rem;
+	text-align: center;
+	color: #9c9c9c;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.clearfix:after{
+	display: block;
+	content: '';
+	clear: both;
+}
+.clearfix{
+	zoom:1;
+}

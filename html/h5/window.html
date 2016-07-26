@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>window屏保</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		body{
+			background: #fff;
+			overflow: hidden;
+		}
+		canvas{
+			background: #000;
+		}
+	</style>
+	<script>
+		function rnd(n,m){
+			return parseInt(Math.random()*(m-n))+n;
+		}
+		window.onload=function(){
+			var oC=document.querySelector('#c1');
+			//调整画布大小
+			var winW=document.documentElement.clientWidth;
+			var winH=document.documentElement.clientHeight;
+
+			oC.width=winW;
+			oC.height=winH;
+
+			var gd=oC.getContext('2d');
+
+			var N=4;	//几个点
+			var aPoint=[];//{x: ,y: ,ispeedX: ,ispeedY: }
+			var oldArr=[];//[[{},{},{},{}],[],[],[]]--用来记录线的运动轨迹
+			var LEN=200;
+
+			//随机生成点
+			for(var i=0;i<N;i++){
+				aPoint[i]={
+					x:rnd(0,winW),
+					y:rnd(0,winH),
+					ispeedX:rnd(-10,10),
+					ispeedY:rnd(-10,10)
+				}
+			}
+			//画点
+			for(var i=0;i<aPoint.length;i++){
+				createPoint(aPoint[i]);
+			}
+
+			//让点动起来
+			setInterval(function(){
+				gd.clearRect(0,0,oC.width,oC.height);
+				for(var i=0;i<aPoint.length;i++){
+
+					//限制运动轨迹在屏幕可视区域内
+					if(aPoint[i].x<=0){
+						aPoint[i].ispeedX*=-1;
+					}
+					if(aPoint[i].x>=winW){
+						aPoint[i].ispeedX*=-1;
+					}
+					if(aPoint[i].y<=0){
+						aPoint[i].ispeedY*=-1;
+					}
+					if(aPoint[i].y>=winH){
+						aPoint[i].ispeedY*=-1;
+					}
+					aPoint[i].x+=aPoint[i].ispeedX;
+					aPoint[i].y+=aPoint[i].ispeedY;
+					createPoint(aPoint[i]);
+				}
+				//将点连成线
+				gd.beginPath();
+				gd.strokeStyle='#fff';
+				gd.moveTo(aPoint[0].x,aPoint[0].y);
+				for(var i=1;i<aPoint.length;i++){
+					gd.lineTo(aPoint[i].x,aPoint[i].y);
+				}
+				gd.closePath();
+				gd.stroke();
+
+				//存之前的线的轨迹
+				var arr=[];
+				for(var i=0;i<aPoint.length;i++){
+					arr[i]={
+						x:aPoint[i].x,
+						y:aPoint[i].y
+					}
+				}
+				oldArr.push(arr);
+				//旧线轨迹大于规定数量时，删除最前面存下的轨迹
+				if(oldArr.length>LEN){
+					oldArr.shift();
+				}
+
+				//画旧线
+				for(var i=0;i<oldArr.length;i++){
+					gd.beginPath();
+					gd.strokeStyle='rgba(255,255,255,'+(i/LEN)+')';
+					gd.moveTo(oldArr[i][0].x,oldArr[i][0].y);
+					for(var j=1;j<oldArr[i].length;j++){
+						gd.lineTo(oldArr[i][j].x,oldArr[i][j].y);
+					}
+					gd.closePath();
+					gd.stroke();
+				}
+
+			},16);
+
+
+			function createPoint(p){
+				var pW=1;//点的宽度
+				var pH=1;//点的高度
+				gd.fillStyle='#fff';
+				gd.fillRect(p.x-pW/2,p.y-pH/2,pW,pH);
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<canvas id="c1" width="800" height="600"></canvas>
+</body>
+</html>

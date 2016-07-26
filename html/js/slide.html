@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网易幻灯片</title>
+	<script type="text/javascript" src="../../js/fn.js"></script>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			list-style: none;
+		}
+		#box{
+			width:300px;
+			height: 200px;
+			border:1px solid #000;
+			margin:50px auto;
+			position: relative;
+			overflow: hidden;
+		}
+		ul{
+			width: 1200px;
+			position: absolute;
+			left:0;
+			top:0;
+		}
+		ul li{
+			width: 300px;
+			height: 200px;
+			font-size: 30px;
+			text-align: center;
+			line-height: 200px;
+			color:#fff;
+			float: left;
+		}
+		ol{
+			position: absolute;
+			left:10px;
+			bottom: 10px;
+		}
+		ol li{
+			width: 50px;
+			height: 10px;
+			background: #fff;
+			margin:10px;
+			float: left;
+		}
+		ol li span{
+			width: 0%;
+			height: 100%;
+			background: blue;
+			display: block;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var oBox=document.getElementById('box');
+			var oUl=oBox.children[0];
+			var oOl=oBox.children[1];
+			var aLi=oUl.children;
+			var aLi2=oOl.children;
+			var aSpan=oOl.getElementsByTagName('span');
+
+			var width=aLi[0].offsetWidth;
+			var width2=aLi2[0].offsetWidth;
+			var iNow=0;
+			function next(){
+				move(aSpan[iNow%aSpan.length],{'width':width2},{'complete':function(){
+						iNow++;
+						move(oUl,{left:-width*(iNow%aLi.length)},{
+						complete:function(){
+								for(var i=0;i<aSpan.length;i++){
+									aSpan[i].style.width=0;
+								}
+								next();
+							}
+						});
+				}});
+			}
+			next();
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<ul>
+			<li style="background: #2acfff;">1</li>
+	        <li style="background: #cc66cc;">2</li>
+	        <li style="background: #ff9be5;">3</li>
+	        <li style="background: #ffe253;">4</li>	
+	    </ul>
+	    <ol>
+	    	<li><span></span></li>
+	    	<li><span></span></li>
+	    	<li><span></span></li>
+	    	<li><span></span></li>
+	    </ol>
+	</div>
+</body>
+</html>

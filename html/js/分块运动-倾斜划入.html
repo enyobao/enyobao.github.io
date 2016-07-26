@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>分块运动</title>
+	<script type="text/javascript" src="../../js/fn.js"></script>
+	<style>
+		#box{
+			position: relative;
+			margin:50px auto;
+			width: 700px;
+			height: 400px;
+			background: url(img4/0.jpg);
+		}
+		#box span{
+			background: url(img4/1.jpg);
+			position: absolute;
+			top:0;
+			opacity: 0;
+			filter: alpha(opacity:0);
+		}
+		input{
+			position: absolute;
+			left:100px;
+			height: 100px;
+		}
+	</style>
+	<script>
+		
+		window.onload=function(){
+			var oBox=document.getElementById('box');
+			var oBtn=document.getElementById('btn');
+			var width=oBox.offsetWidth;
+			var height=oBox.offsetHeight;
+
+			//创建span,布局
+			var R=4;//row行数
+			var C=7;//col列数
+			for(var r=0;r<R;r++){
+				for(var c=0;c<C;c++){
+					var oSpan=document.createElement('span');
+					oSpan.style.width=width/C+'px';
+					oSpan.style.height=height/R+'px';
+					//添加span
+					oBox.appendChild(oSpan);
+
+					//改变位置
+					oSpan.style.left=width/C*c+'px';
+					oSpan.style.top=height/R*r+'px';
+					
+					oSpan.style.backgroundPosition=-oSpan.offsetWidth*c+'px '+-oSpan.offsetHeight*r+'px';	
+					
+					oSpan.r=r;
+					oSpan.c=c;			
+				}
+			}
+			var aSpan=oBox.children;
+			//下一页
+			var n=0;
+			oBtn.onclick=function(){
+				n++;
+				oBox.style.backgroundImage='url(img4/'+(n-1)%3+'.jpg)';
+				for(var i=0;i<aSpan.length;i++){
+					(function(i){
+						setTimeout(function(){
+							aSpan[i].style.opacity=0;
+							move(aSpan[i],{'opacity':1});
+							aSpan[i].style.backgroundImage='url(img4/'+n%3+'.jpg)';
+						},100*(aSpan[i].c+aSpan[i].r));
+					})(i);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn" value="下一页">
+	<div id="box">
+		<!-- <span></span> -->
+	</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>漂浮广告</title>
+	<style>
+		*{
+			margin:0;
+			padding: 0;
+		}
+		#box{
+			width: 200px;
+			height:200px;
+			background: #f00;
+			position: absolute;
+			left: 0;
+			top:0;
+			color: #fff;
+			text-align: center;
+			line-height: 200px;
+			font-size: 30px;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var oBox=document.getElementById('box');
+
+			var iSpeedX=8;
+			var iSpeedY=6;
+			var timer;
+			var n=0;
+			timer=setInterval(function(){
+				iSpeedY+=3;
+				var left=oBox.offsetLeft+iSpeedX;
+				var top=oBox.offsetTop+iSpeedY;
+
+				if(left>document.documentElement.clientWidth-oBox.offsetWidth){
+					left=document.documentElement.clientWidth-oBox.offsetWidth;
+					//iSpeedX*=-1;
+					iSpeedX*=-0.8;
+					iSpeedY*=0.8;
+				}
+				if(top>document.documentElement.clientHeight-oBox.offsetHeight){
+					top=document.documentElement.clientHeight-oBox.offsetHeight;
+					//iSpeedY*=-1;
+					iSpeedY*=-0.8;
+					iSpeedX*=0.8;
+				}
+				if(left<0){
+					left=0;
+					//iSpeedX*=-1;
+					iSpeedX*=-0.8;
+					iSpeedY*=0.8;
+				}
+				if(top<0){
+					top=0;
+					//iSpeedY*=-1;
+					iSpeedY*=-0.8;
+					iSpeedX*=0.8;
+				}
+
+				oBox.style.left=left+'px';
+				oBox.style.top=top+'px';
+
+				if(Math.abs(iSpeedX)<1){
+					iSpeedX=0;
+				}
+				if(Math.abs(iSpeedY)<1){
+					iSpeedY=0;
+				}
+
+				if(Math.abs(iSpeedX)==0 && Math.abs(iSpeedY)==0 && top==document.documentElement.clientHeight-oBox.offsetHeight){
+					clearInterval(timer);
+				}
+				document.title=n++;
+
+			},30);
+		}
+	</script>
+</head>
+<body>
+	<div id="box">广告</div>
+</body>
+</html>

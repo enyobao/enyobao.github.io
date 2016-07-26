@@ -1,0 +1,44 @@
+*{
+	margin:0;
+	padding:0;
+	list-style: none;
+	color: #fff;
+	font-size: 15px;
+	font-family: 'Macrosoft YaHei';
+}
+a{
+	text-decoration: none;
+	color: #eee;
+}
+a img{
+	vertical-align: top;
+}
+b,strong,h1,h2,h3,h4,h5,h6{
+	font-weight: normal;
+}
+i,em{
+	font-style: normal;
+}
+textarea,input{
+	outline: none;
+}
+.clearfix:after{
+	display: block;
+	content: '';
+	clear:both;
+}
+.clearfix{
+	zoom:1;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.hide{
+	display: none;
+}
+.bord{
+	border:1px solid #ccc;
+}

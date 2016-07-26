@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义滚动条</title>
+	<style>
+		#box{
+			width: 401px;
+			height: 400px;
+			border:1px solid #ccc;
+			margin:10px auto;
+			position: relative;
+		}
+		.left{
+			position: absolute;
+			left:0;
+			top:0;
+			width: 380px;
+			height: 100%;
+			overflow: hidden;
+		}
+		.right{
+			position: absolute;
+			right:0;
+			top:0;
+			width: 20px;
+			height: 100%;
+			border-left:1px solid #ccc;
+		}
+		#box1{
+			width: 100%;
+			height: 30px;
+			background: pink;
+			position: absolute;
+			left:0;
+			top:0;
+		}
+		#box2{
+			width: 100%;
+			position: absolute;
+			left:0;
+			top:0;
+		}
+	</style>
+	<script>
+		function addEvent(obj,sEv,fn){
+			if(obj.addEventListener){
+				//高级浏览器
+				obj.addEventListener(sEv,fn,false);
+			}else{
+				//IE
+				obj.attachEvent('on'+sEv,fn);
+			}
+		}
+		function addWheel(obj,fn){
+			function wheel(ev){
+				var oEvent=ev||event;
+				var bDown=true;//true时为向下
+				//判断滚动方向
+				if(oEvent.wheelDelta){
+					if(oEvent.wheelDelta>0){
+						//向上
+						bDown=false;
+					}
+					else{
+						//向下
+						bDown=true;
+					}
+				}else{
+					if(oEvent.detail<0){
+						bDown=false;
+					}else{
+						bDown=true;
+					}
+				}
+				//调用传递进来的函数fn，并给其返回一个值为bdown
+				fn && fn(bDown);
+				//阻止默认事件
+				oEvent.preventDefault && oEvent.preventDefault();
+				return false;
+			}
+			//dom事件绑定
+			if(navigator.userAgent.toLowerCase().indexOf('firefox')!=-1){
+				//firefox
+				obj.addEventListener('DOMMouseScroll',wheel,false);
+			}else{
+				//other
+				addEvent(obj,'mousewheel',wheel);
+			}
+		}
+		window.onload=function(){
+			var oBox=document.getElementById('box');
+			var oLeft=oBox.children[0];
+			var oRight=oBox.children[1];
+			var oBox1=document.getElementById('box1');
+			var oBox2=document.getElementById('box2');
+			var t=0;
+			
+
+			oBox1.onmousedown=function(ev){
+				var oEvent=ev||event;
+				var disY=oEvent.clientY-oBox1.offsetTop;
+				document.onmousemove=function(ev){
+					var oEvent=ev||event;
+					t=oEvent.clientY-disY;
+					if(t<0){
+						t=0;
+					}
+					if(t>oBox.offsetHeight-oBox1.offsetHeight){
+						t=oBox.offsetHeight-oBox1.offsetHeight;
+					}
+					moveDiv(t);
+				};
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+				};
+				return false;
+			}
+
+			function moveDiv(t){
+				oBox1.style.top=t+'px';
+				//比例
+				var scale=t/(oBox.offsetHeight-oBox1.offsetHeight);
+				var top=(oBox2.scrollHeight-oBox.offsetHeight)*scale;
+				oBox2.style.top=-top+'px';
+			}
+			//调用addwheel函数，并且接受返回值bdown
+			addWheel(oBox,function(bDown){
+				//判断滚动方向
+				 if(bDown){
+                    t+=10;
+                    if(t>=oRight.offsetHeight-oBox1.offsetHeight){
+                        t=oRight.offsetHeight-oBox1.offsetHeight;
+                    }
+                }else{
+                    t-=10;
+                    if(t<=0){
+                        t=0;
+                    }
+                }
+				moveDiv(t);
+			})
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<div class="left">
+			<div id="box2">
+				去年12月11日，习总在全国党校工作会议上发表了长篇讲话。讲话中，对党校工作者，也是对理论界提出了13个问题：
+　　1，如何看待马克思主义的真理性
+　　2，如何看待社会主义本质特征
+　　3，如何看待中国特色社会主义理论体系的科学性
+　　4，如何看待加强和改善中国共产党的领导
+　　5，如何看待自由、民主、平等的科学内涵和实践
+　　6，如何看待西方所谓“普世价值”
+　　7，如何准确把握“四个全面”战略布局
+　　8，如何深刻领会新的发展理念
+　　9，如何科学认识经济发展新常态
+　　10，如何看待使市场在资源配置中起决定性作用和更好发挥政府作用
+　　11，如何看待坚持我国社会主义制度优越性和全面深化改革
+　　12，如何看待坚持党的领导、人民当家作主、依法治国有机统一
+　　13，如何看待党风廉政建设和反腐败斗争
+　　学习小组（微信号xuexixiaozu）与中央网信办网络新闻信息传播局联合推出相关专题，其中包括梳理总书记本人对这十三个问题的一些阐述等。今天推的是：“如何看待加强和改善中国共产党的领导”。
+　　习总如何看待加强和改善中国共产党的领导
+　　1、中国共产党是中国特色社会主义事业的领导核心
+　　中国特色社会主义制度，坚持把根本政治制度、基本政治制度同基本经济制度以及各方面体制机制等具体制度有机结合起来，坚持把国家层面民主制度同基层民主制度有机结合起来，坚持把党的领导、人民当家作主、依法治国有机结合起来，符合我国国情，集中体现了中国特色社会主义的特点和优势，是中国发展进步的根本制度保障。
+　　社会和谐是中国特色社会主义的本质属性，所以必须团结一切可以团结的力量，最大限度增加和谐因素，增强社会创造活力，确保人民安居乐业、社会安定有序、国家长治久安。和平发展是中国特色社会主义的必然选择，所以必须坚持开放的发展、合作的发展、共赢的发展，扩大同各方利益汇合点，推动建设持久和平、共同繁荣的和谐世界。中国共产党是中国特色社会主义事业的领导核心，所以必须加强和改善党的领导，充分发挥党总揽全局、协调各方的领导核心作用。
+　　这些年来，我们全面推进党的建设新的伟大工程，党的执政能力得到新的提高，党的先进性和纯洁性得到保持和发展，党的领导得到加强和改善。同时，与国内外形势发展变化相比，与党所承担的历史任务相比，党的领导水平和执政水平、党组织建设状况和党员干部素质、能力、作风都还有不小差距。特别是新形势下加强和改进党的建设面临“四大考验”、“四种危险”，落实党要管党、从严治党的任务比以往任何时候都更为繁重更为紧迫。全党要增强紧迫感和责任感，牢牢把握党的建设总要求，不断提高党的领导水平和执政水平、提高拒腐防变和抵御风险能力，使我们党在世界形势深刻变化的历史进程中始终走在时代前列，在应对国内外各种风险和考验的历史进程中始终成为全国人民的主心骨，在坚持和发展中国特色社会主义的历史进程中始终成为坚强领导核心。
+　　——习近平在十八届中共中央政治局第一次集体学习时的讲话（2012年11月17日）
+
+2、遵守党的政治纪律，最核心就是坚持党的领导
+　　遵守党的政治纪律，最核心的，就是坚持党的领导，坚持党的基本理论、基本路线、基本纲领、基本经验、基本要求，同党中央保持高度一致，自觉维护中央权威。在指导思想和路线方针政策以及关系全局的重大原则问题上，全党必须在思想上政治上行动上同党中央保持高度一致。各级党组织和领导干部要牢固树立大局观念和全局意识，正确处理保证中央政令畅通和立足实际创造性开展工作的关系，任何具有地方特点的工作部署都必须以贯彻中央精神为前提。
+　　要防止和克服地方和部门保护主义、本位主义，决不允许“上有政策、下有对策”，决不允许有令不行、有禁不止，决不允许在贯彻执行中央决策部署上打折扣、做选择、搞变通。每一个共产党员特别是领导干部都要牢固树立党章意识，自觉用党章规范自己的一言一行，在任何情况下都要做到政治信仰不变、政治立场不移、政治方向不偏。党的各级组织要自觉担负起执行和维护政治纪律的责任，加强对党员遵守政治纪律的教育。党的各级纪律检查机关要把维护党的政治纪律放在首位，加强对政治纪律执行情况的监督检查。
+　　——习近平在十八届中央纪委二次全会上发表重要讲话强调（摘自《人民日报》2013年1月23日 第1版）
+　　3、增强对坚持党的领导的信念
+　　广大青年要坚持用邓小平理论、“三个代表”重要思想、科学发展观武装头脑，把理想信念建立在对科学理论的理性认同上，建立在对历史规律的正确认识上，建立在对基本国情的准确把握上，不断增强道路自信、理论自信、制度自信，增强对坚持党的领导的信念，永远紧跟党高高举起中国特色社会主义伟大旗帜。
+			</div>
+		</div>
+		<div class="right">
+			<div id="box1"></div>
+		</div>
+	</div>
+</body>
+</html>

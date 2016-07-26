@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新浪微博－我的首页</title>
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/skin.css">
+	<link rel="stylesheet" href="css/pos.css">
+	
+</head>
+<body>
+	<div class="main">
+		<div class="WB_head" id="head">
+			<div class="head_nav clearfix">
+				<img src="img/logo.jpg" class="fl">
+				<div class="search_box fl">
+					<input type="text" class="head_search">
+					<img src="img/search.jpg" class="search_img"/>
+					<span class="search_span">大家正在搜：奔跑吧兄弟</span>
+				</div>
+				<div class="head_right_nav fr clearfix">
+					<ul class="clearfix fl head_ul_nav">
+						<li class="fl"><a href="javascript:;" class="head_nav_con">
+							<img src="img/1_01.jpg" alt="" class="head_li_img">
+							<span class="head_li_span">首页</span>
+						</a></li>
+						<li class="fl"><a href="javascript:;" class="head_nav_con">
+							<img src="img/1_03.jpg" alt="" class="head_li_img">
+							<span class="head_li_span">发现</span>
+						</a></li>
+						<li class="fl"><a href="javascript:;" class="head_nav_con">
+							<img src="img/1_05.jpg" alt="" class="head_li_img">
+							<span class="head_li_span">游戏</span>
+						</a></li>
+						<li class="fl"><a href="javascript:;" class="head_nav_con">
+							<img src="img/1_09.jpg" alt="" class="head_li_img">
+							<span class="head_li_span">拉德纳</span>
+						</a></li>
+					</ul>
+					<ul class="fl head_right_ul clearfix">
+						<li class="fl">
+							<a href="javascript:;" class="head_nav_con">
+								<img src="img/1_07.jpg" class="head_li_img">
+							</a>
+							<ul class="head_nav_list">
+								<li><a href="javascript:;">帐号设置</a></li>
+								<li><a href="javascript:;">会员中心</a></li>
+								<li><a href="javascript:;">帐号安全</a></li>
+								<li><a href="javascript:;">隐私设置</a></li>
+							</ul>
+						
+						</li>
+						<li class="fl">
+							<a href="javascript:;" class="head_nav_con">
+								<img src="img/1_11.jpg" class="head_li_img">
+							</a>
+							<ul class="head_nav_list">
+								<li><a href="javascript:;">帐号设置</a></li>
+								<li><a href="javascript:;">会员中心</a></li>
+								<li><a href="javascript:;">帐号安全</a></li>
+								<li><a href="javascript:;">隐私设置</a></li>
+							</ul>
+						</li>
+						<li class="fl"><a href="javascript:;" class="head_nav_con">
+							<img src="img/1_13.jpg" class="head_li_img">
+						</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="head_copy" id="head2"></div>
+		<div class="bg_main" id="bg_main" >
+			<span class="skin_span" id="skin_span"></span>
+			<div class="WB_main clearfix">
+				<div class="main_opa fl"></div>
+				<!-- 左侧栏 -->
+				<div class="main_left fl" id="left">
+					<a href="javascript:;" class="left_con">首页</a>
+					<a href="javascript:;" class="left_con">收藏</a>
+					<a href="javascript:;" class="left_con">赞</a>
+					<a href="javascript:;" class="left_con2">热门微博</a>
+					<a href="javascript:;">好友圈</a>
+					<a href="javascript:;">群微博</a>
+					<a href="javascript:;">特别关注</a>
+					<a href="javascript:;">百度</a>
+					<a href="javascript:;">悄悄关注</a>
+				</div>
+				<div class="left_copy fl"></div>
+				<!-- 中间栏 -->
+				<div class="main_center fl">
+					<div class="send_weibo">
+						<div class="new_weibo clearfix">
+							<h3 class="fl">有什么<span>新鲜事</span>要告诉大家？</h3>
+							<div class="fr" id="hot_weibo">
+								<a class="fl">大叔怒斥女子公共场所打电话：你的电磁波侵犯到我(视频)</a>
+								<a href="javascript:;" class="fl new_weibo_con">热门微博</a>
+							</div>
+							<div class="fr font_num">
+								<p>还可以输入<span>140</span>字</p>
+							</div>
+						</div>
+						<textarea id="new_text" class="new_text"></textarea>
+						<div class="new_weibo_send clearfix">
+							<ul class="fl clearfix">
+								<li class="fl">
+									<a href="javascript:;">表情</a>
+									<img src="img/2_01.jpg" class="new_weibo_img">
+								</li>
+								<li class="fl">
+									<a href="javascript:;">图片</a>
+									<img src="img/2_02.jpg" class="new_weibo_img">
+								</li>
+								<li class="fl">
+									<a href="javascript:;">视频</a>
+									<img src="img/2_03.jpg" class="new_weibo_img">
+								</li>
+								<li class="fl">
+									<a href="javascript:;">话题</a>
+									<img src="img/2_04.jpg" class="new_weibo_img">
+								</li>
+								<li class="fl">
+									<a href="javascript:;">头条文章</a>
+									<img src="img/2_05.jpg" class="new_weibo_img">
+								</li>
+								<li class="fl">
+									<img src="img/2_06.jpg" class="new_weibo_img">
+								</li>
+							</ul>
+							<div class="send_box fr clearfix">
+								<a href="javascript:;" class="fl send_box_con fl" id="send_box_con">
+									公开
+									<img src="img/down.jpg" class="send_box_img">
+								</a>
+								<ul class="send_show" id="send_show">
+									<li>
+										<a href="javascript:;">公开</a>
+									</li>
+									<li>
+										<a href="javascript:;">好友圈</a>
+									</li>
+									<li>
+										<a href="javascript:;">仅自己可见</a>
+									</li>
+								</ul>
+								<input type="button" id="send_btn" class="send_btn fl" value="发布">
+							</div>
+						</div>
+					</div>
+					<div class="recommend">精彩微博推荐</div>
+					<!-- <div class="recommend clearfix">
+						<ul class="fl clearfix">
+							<li class="fl"><a href="javascript:;">全部</a></li>
+							<li class="fl"><a href="javascript:;">原创</a></li>
+							<li class="fl"><a href="javascript:;">图片</a></li>
+							<li class="fl"><a href="javascript:;">视频</a></li>
+							<li class="fl"><a href="javascript:;">音乐</a></li>
+							<li class="fl"><a href="javascript:;"></a></li>
+						</ul>
+						<div class="fr">
+							<input type="text" class="text">
+							<span>搜索我关注人的微博</span>
+						</div>
+					</div> -->
+					<!-- 微博主要内容 -->
+					<ul class="weibo" id="weibo_ul">
+						<!-- <li class="clearfix">
+							<div class="weibo_top clearfix">
+								<div class="portrait fl">
+									<div></div>
+								</div>
+								<div class="weibo_content fl">
+									<h4>这个微博是个逗比</h4>
+									<p>6月3日 来自秒拍网页版</p>
+									<p class="weibo_con">相亲遇到这样的男生，分分钟就要崩溃了。。。。套路太深</p>
+									<img src="img/736f0c7ejw1f4i60xdf9hj20hs0b8wfc.jpg" >
+									<div class="weibo_pos clearfix">
+										<input type="button" id="weibo_btn" class="weibo_btn fl" value="关注">
+										<img src="img/add.jpg" class="add">
+										<img src="img/down2.jpg" class="down2 fl">
+									</div>
+								</div>
+							</div>
+							<div class="weibo_bottom">
+								<a href="javascript:;" class="fl">转发</a>
+								<a href="javascript:;" class="fl">评论</a>
+								<a href="javascript:;" class="fl">赞</a>
+							</div>
+						</li> -->
+					</ul>
+
+
+				</div>
+				<!-- 右侧栏 -->
+				<div class="main_right fl" id="right">
+					<div class="right_user_content">
+						<img src="img/user.jpg">
+					</div>
+					<div class="book" id="book">
+						<h3>亚洲好书榜实时趋势</h3>
+						<ul></ul>	
+						<a href="javascript:;" class="book_con">查看更多&nbsp;&gt;</a>
+					</div>
+					<div class="ads">
+						<img src="img/818b4e87jw1f4ht3mi120j205606y74v.jpg">
+					</div>
+					<div class="hot_news" id="hot_news">
+						<h3>
+							热门话题
+							<a href="javascript:;">换一换</a>
+						</h3>
+						<ul>
+							<!-- <li class="clearfix">
+								<a href="javascript:;" class="red">装修该听谁的#
+								</a>
+								<span>1243万</span>
+							</li> -->
+						</ul>
+						<a href="javascript:;" class="check">查看更多&nbsp;&gt;</a>
+					</div>
+					<div class="friend_copy"></div>
+					<div class="friend" id="friend">
+						<h3>好友关注动态</h3>
+						<ul>
+							<li>
+								<p>你身边的微博红人</p>
+							</li>
+							<li class="clearfix friend_2">
+								<span class="head_span fl">
+									<img src="img/bccd4cdbjw8emxqvwgmgcj2050050glx.jpg">
+								</span>
+								<div class="humen fl">
+									<p class="yellow">香港卫视杜立勇</p>
+									<p>微博区域媒体人</p>
+								</div>
+								<div class="concern fl">
+									<input type="button" class="concern_btn fl" value="关注">
+									<img src="img/add.jpg" class="concern_add">
+								</div>
+							</li>
+							<li>
+								<p>你身边的微博红人</p>
+							</li>
+							<li class="clearfix friend_2">
+								<span class="head_span fl">
+									<img src="img/bccd4cdbjw8emxqvwgmgcj2050050glx.jpg">
+								</span>
+								<div class="humen fl">
+									<p class="yellow">香港卫视杜立勇</p>
+									<p>微博区域媒体人</p>
+								</div>
+								<div class="concern fl">
+									<input type="button" class="concern_btn fl" value="关注">
+									<img src="img/add.jpg" class="concern_add">
+								</div>
+							</li>
+							<li>
+								<p>你身边的微博红人</p>
+							</li>
+							<li class="clearfix friend_2">
+								<span class="head_span fl">
+									<img src="img/bccd4cdbjw8emxqvwgmgcj2050050glx.jpg">
+								</span>
+								<div class="humen fl">
+									<p class="yellow">香港卫视杜立勇</p>
+									<p>微博区域媒体人</p>
+								</div>
+								<div class="concern fl">
+									<input type="button" class="concern_btn fl" value="关注">
+									<img src="img/add.jpg" class="concern_add">
+								</div>
+							</li>
+							<li>
+								<p>你身边的微博红人</p>
+							</li>
+							<li class="clearfix friend_2">
+								<span class="head_span fl">
+									<img src="img/bccd4cdbjw8emxqvwgmgcj2050050glx.jpg">
+								</span>
+								<div class="humen fl">
+									<p class="yellow">香港卫视杜立勇</p>
+									<p>微博区域媒体人</p>
+								</div>
+								<div class="concern fl">
+									<input type="button" class="concern_btn fl" value="关注">
+									<img src="img/add.jpg" class="concern_add">
+								</div>
+							</li>
+						</ul>	
+						<a href="javascript:;" class="check">查看更多&nbsp;&gt;</a>
+					</div>
+					<div class="hot_goods">
+						<h3>热门商品推荐</h3>
+						<img src="img/TB10yT9JFXXXXcrXpXXSutbFXXX.jpg">
+					</div>
+					<div class="vip">
+						<img src="img/vip.jpg">
+					</div>
+					<div class="notice">
+						<h3>公告栏</h3>
+						<a href="javascript:;">《全国辟谣平台》</a>
+						<a href="javascript:;">《首都互联网协会发布坚守七条底线倡议书》</a>
+					</div>	
+				</div>
+			</div>
+			<div class="skin_box" id="skin_box" >
+				<div class="skin_show">
+					<h2>轻松换肤，你的首页最出“色”</h2>
+					<ul class="clearfix">
+						<li>
+							<img src="img/nobg.jpg">
+						</li>
+						<li>
+							<img src="img/city.jpg">
+						</li>
+						<li>
+							<img src="img/mao.jpg">
+						</li>
+						<li>
+							<img src="img/nvhai.jpg">
+						</li>
+						<li>
+							<img src="img/pugongying.jpg">
+						</li>
+						<li>
+							<img src="img/qingxin.jpg">
+						</li>
+						<li>
+							<img src="img/qiu.jpg">
+						</li>
+					</ul>
+					<span class="skin_close" id="skin_close">
+					</span>
+				</div>	
+			</div>
+		</div>
+	</div>
+	<div class="sec_bac"></div>	
+	<div class="cheat_box" id="cheat_box">
+		<div class="sec_abs">
+			<div class="sec_pos"></div>
+			<span class="sec_span">
+			<span class="sec_img"></span>私信聊天</span>
+		</div>
+		<div class="sec_cheat">
+			<div class="sec_left">
+				<div class="sec_top">
+					<input type="text">
+					<span>查找联系人或群</span>
+				</div>
+				<div class="sec_center">
+					<p>搜索你的联系人发条私信吧</p>
+				</div>
+				<p class="sec_bottom">
+					查看全部私信
+				</p>
+			</div>
+			<div class="sec_right"></div>
+		</div>
+	</div>
+	<div class="prev" id="prev">
+		<div></div>
+		<p>返回顶部</p>
+	</div>
+</body>
+<script type="text/javascript" src="js/ajax.js"></script>
+<script type="text/javascript" src="js/move.js"></script>
+<script type="text/javascript" src="js/right.js"></script>
+<script type="text/javascript" src="js/skin.js"></script>
+<script type="text/javascript" src="js/send_weibo.js"></script>
+<script type="text/javascript" src="js/pos.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</html>
