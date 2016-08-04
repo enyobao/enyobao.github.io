@@ -169,3 +169,32 @@ function addWheel(obj,fn){
 		addEvent(obj,'mousewheel',wheel);
 	}
 }
+//拖拽
+function drag(obj){
+	var iParentWidth=obj.parentNode.offsetWidth;
+
+	obj.onmousedown=function(ev){
+		var oEvent=ev||event;
+		var downX=oEvent.clientX-obj.offsetLeft;
+	
+		document.onmousemove=function(ev){
+			var oEvent=ev||event;
+			var left=oEvent.clientX-downX;
+
+			if(left>0){
+				left=0;
+			}
+			if(left<-(obj.offsetWidth-iParentWidth)){
+				left=-(obj.offsetWidth-iParentWidth);
+			}
+
+			obj.style.left=left+'px';
+		};
+		document.onmouseup=function(){
+			document.onmousemove=null;
+			document.onmouseup=null;
+		};
+		return false;
+		oEvent.preventDefault && oEvent.preventDefault();
+	};
+}

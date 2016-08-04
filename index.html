@@ -2,27 +2,33 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<title>包红梅个人网站</title>
 	<link rel="stylesheet" href="css/base.css">
 	<link rel="stylesheet" href="css/font.css">
-	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" type="text/css" media="screen and (max-width:800px)" href="css/phone.css" />
+	<link rel="stylesheet" type="text/css" media="screen and (min-width:800px)" href="css/pc.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="css/phone.css" /> -->
 </head>
 <body>
 	<div class="wrap" id="wrap">
 		<div class="header">
 			<div class="nav" id="nav">
 				<span class="logo"></span>
+				<div></div>
 				<ul class="clearfix nav_list">
-					<li class="fl active">
+					<li class="active">
 						Home
 					</li>
-					<li class="fl">
+					<li>
 						作品展示
 					</li>
-					<li class="fl">
+					<li>
 						关于我
 					</li>
-					<li class="fl">
+					<li>
 						个人博客
 					</li>
 					<li class="nav_mask"></li>
@@ -41,64 +47,58 @@
 						<div class="home_box">
 							<ul class="clearfix">
 								<li>
-									<a href="http://imweb.io/topic/55e32fd5771670e207a16bb9">
+									<a href="http://imweb.io/topic/55e32fd5771670e207a16bb9" target="_blank">
 										<img src="img/news/yu.png" alt="">
+										<span class="news_mask"></span>
+										<span class="slide">
+											<strong>前端如何呼风唤雨</strong>
+										</span>
 									</a>
-									<span class="news_mask"></span>
-									<span class="slide">
-										<strong>前端如何呼风唤雨</strong>
-										详细描述
-									</span>
 								</li>
 								<li>
-									<a href="http://www.alloyteam.com/2016/04/zepto-jquery-angularjs-react-and-nuclear-evolution/">
+									<a href="http://www.alloyteam.com/2016/04/zepto-jquery-angularjs-react-and-nuclear-evolution/" target="_blank">
 										<img src="img/news/jq.png" alt="">
+										<span class="news_mask"></span>
+										<span class="slide">
+											<strong>zepto、jQuery、AngularJS、React、Nuclear的演化</strong>
+										</span>
 									</a>
-									<span class="news_mask"></span>
-									<span class="slide">
-										<strong>zepto、jQuery、AngularJS、React、Nuclear的演化</strong>
-										详细描述
-									</span>
 								</li>
 								<li>
-									<a href="http://www.alloyteam.com/2016/05/h5-camera-literacy/">
+									<a href="http://www.alloyteam.com/2016/05/h5-camera-literacy/" target="_blank">
 										<img src="img/news/zb.jpg" alt="">
+										<span class="news_mask"></span>
+										<span class="slide">
+											<strong>H5视频直播扫盲</strong>
+										</span>
 									</a>
-									<span class="news_mask"></span>
-									<span class="slide">
-										<strong>H5视频直播扫盲</strong>
-										详细描述
-									</span>
 								</li>
 								<li>
-									<a href="http://imweb.io/topic/57738e626d1cb4705be8a4a1">
+									<a href="http://imweb.io/topic/57738e626d1cb4705be8a4a1" target="_blank">
 										<img src="img/news/xys.jpg" alt="">
+										<span class="news_mask"></span>
+										<span class="slide">
+											<strong>全响应式web前端开发</strong>
+										</span>
 									</a>
-									<span class="news_mask"></span>
-									<span class="slide">
-										<strong>全响应式web前端开发</strong>
-										详细描述
-									</span>
 								</li>
 								<li>
-									<a href="http://imweb.io/topic/577941b9f525c4613e8b4015">
+									<a href="http://imweb.io/topic/577941b9f525c4613e8b4015" target="_blank">
 										<img src="img/news/jinjie.png" alt="">
+										<span class="news_mask"></span>
+										<span class="slide">
+											<strong>前端进阶之路小思</strong>
+										</span>
 									</a>
-									<span class="news_mask"></span>
-									<span class="slide">
-										<strong>前端进阶之路小思</strong>
-										详细描述
-									</span>
 								</li>
 								<li>
-									<a href="http://imweb.io/topic/573e766f1156025b1dce9404">
+									<a href="http://imweb.io/topic/573e766f1156025b1dce9404" target="_blank">
 										<img src="img/news/ui.png" alt="">
+										<span class="news_mask"></span>
+										<span class="slide">
+											<strong>深入探讨前端UI框架</strong>
+										</span>
 									</a>
-									<span class="news_mask"></span>
-									<span class="slide">
-										<strong>深入探讨前端UI框架</strong>
-										详细描述
-									</span>
 								</li>
 							</ul>
 						</div>
@@ -119,13 +119,13 @@
 					</div>
 					<div class="clearfix">
 						<ol class="fl">
-							<li><img src="img/h5c3.png"></li>
+							<li class="on"><img src="img/h5c3.png"></li>
 							<li><img src="img/javascript.png"></li>
 							<li><img src="img/hc.png"></li>
 						</ol>
-						<ul class="fl" style="display: block">
+						<ul class="fl active">
 							<li>
-								<a _href="html/h5/circle.html">
+								<a _href="./html/h5/circle.html" target="_blank">
 									<img src="img/work/h5-1.jpg">
 								</a>
 								<span class="slide">
@@ -133,7 +133,7 @@
 									可以上下左右移动的图片环
 								</span>
 							</li>
-							<li>
+							<!-- <li>
 								<a _href="javascript:;">
 									<img src="img/work/h5-10.jpg">
 								</a>
@@ -150,9 +150,9 @@
 									<strong>标签云</strong>
 									此处是详细
 								</span>
-							</li>
+							</li> -->
 							<li>
-								<a _href="html/h5/cube.html">
+								<a _href="./html/h5/cube.html" target="_blank">
 									<img src="img/work/h5-2.jpg">
 								</a>
 								<span class="slide">
@@ -161,7 +161,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/h5/window.html">
+								<a _href="./html/h5/window.html" target="_blank">
 									<img src="img/work/h5-4.jpg">
 								</a>
 								<span class="slide">
@@ -170,7 +170,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/h5/piano.html">
+								<a _href="./html/h5/piano.html" target="_blank">
 									<img src="img/work/h5-5.jpg">
 								</a>
 								<span class="slide">
@@ -179,7 +179,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/h5/pageturn.html">
+								<a _href="./html/h5/pageturn.html" target="_blank">
 									<img src="img/work/h5-6.jpg">
 								</a>
 								<span class="slide">
@@ -188,7 +188,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/h5/flip.html">
+								<a _href="./html/h5/flip.html" target="_blank">
 									<img src="img/work/h5-9.jpg">
 								</a>
 								<span class="slide">
@@ -197,7 +197,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/h5/pic_3d.html">
+								<a _href="./html/h5/pic_3d.html" target="_blank">
 									<img src="img/work/h5-8.jpg">
 								</a>
 								<span class="slide">
@@ -206,7 +206,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/h5/boom.html">
+								<a _href="./html/h5/boom.html" target="_blank">
 									<img src="img/work/h5-7.jpg">
 								</a>
 								<span class="slide">
@@ -215,7 +215,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/h5/">
+								<a _href="./html/h5/">
 									<img src="img/work/h5-3.jpg">
 								</a>
 								<span class="slide">
@@ -226,7 +226,7 @@
 						</ul>
 						<ul class="fl">
 							<li>
-								<a _href="html/js/picshow.html">
+								<a _href="./html/js/picshow.html" target="_blank">
 									<img src="img/work/js-1.jpg">
 								</a>
 								<span class="slide">
@@ -235,16 +235,16 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/js/lagou.html">
+								<a _href="./html/js/lagou.html" target="_blank">
 									<img src="img/work/js-2.jpg">
 								</a>
 								<span class="slide">
-									<strong>拉勾鼠标滑入效果</strong>
-									当鼠标分别从四个方向划入(划出)时，蒙板跟随鼠标划入(划出)
+									<strong>拉勾鼠标滑入</strong>
+									当鼠标分别从四个方向划入(划出)
 								</span>
 							</li>
 							<li>
-								<a _href="html/js/clock.html">
+								<a _href="./html/js/clock.html" target="_blank">
 									<img src="img/work/js-3.jpg">
 								</a>
 								<span class="slide">
@@ -253,7 +253,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/js/bigger.html">
+								<a _href="./html/js/bigger.html" target="_blank">
 									<img src="img/work/js-4.jpg">
 								</a>
 								<span class="slide">
@@ -262,7 +262,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/js/slidepic.html">
+								<a _href="./html/js/slidepic.html" target="_blank">
 									<img src="img/work/js-10.jpg">
 								</a>
 								<span class="slide">
@@ -271,7 +271,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/js/ads.html">
+								<a _href="./html/js/ads.html" target="_blank">
 									<img src="img/work/js-11.jpg">
 								</a>
 								<span class="slide">
@@ -280,7 +280,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/js/sort.html">
+								<a _href="./html/js/sort.html" target="_blank">
 									<img src="img/work/js-7.jpg">
 								</a>
 								<span class="slide">
@@ -289,7 +289,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/js/apple.html">
+								<a _href="./html/js/apple.html" target="_blank">
 									<img src="img/work/js-8.jpg">
 								</a>
 								<span class="slide">
@@ -298,7 +298,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/js/picwall.html">
+								<a _href="./html/js/picwall.html" target="_blank">
 									<img src="img/work/js-9.jpg">
 								</a>
 								<span class="slide">
@@ -307,7 +307,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/js/scrollbar.html">
+								<a _href="./html/js/scrollbar.html" target="_blank">
 									<img src="img/work/js-12.jpg">
 								</a>
 								<span class="slide">
@@ -316,7 +316,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/js/dis.html">
+								<a _href="./html/js/dis.html" target="_blank">
 									<img src="img/work/js-13.jpg">
 								</a>
 								<span class="slide">
@@ -325,7 +325,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/js/slide.html">
+								<a _href="./html/js/slide.html" target="_blank">
 									<img src="img/work/js-14.jpg">
 								</a>
 								<span class="slide">
@@ -336,7 +336,7 @@
 						</ul>
 						<ul class="fl">
 							<li>
-								<a _href="html/css/aiqiyi/aiqiyi.html">
+								<a _href="./html/css/aiqiyi/aiqiyi.html" target="_blank">
 									<img src="img/work/aiqiyi.jpg">
 								</a>
 								<span class="slide">
@@ -345,7 +345,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/css/JD/JD.html">
+								<a _href="./html/css/JD/JD.html" target="_blank">
 									<img src="img/work/JD.jpg">
 								</a>
 								<span class="slide">
@@ -354,7 +354,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/css/meilishuo/meilishuo.html">
+								<a _href="./html/css/meilishuo/meilishuo.html" target="_blank">
 									<img src="img/work/meilishuo.jpg">
 								</a>
 								<span class="slide">
@@ -363,7 +363,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/css/mi/mi.html">
+								<a _href="./html/css/mi/mi.html" target="_blank">
 									<img src="img/work/mi.jpg">
 								</a>
 								<span class="slide">
@@ -372,7 +372,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/css/sina/sina.html">
+								<a _href="./html/css/sina/sina.html" target="_blank">
 									<img src="img/work/sina.jpg">
 								</a>
 								<span class="slide">
@@ -381,7 +381,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/css/soul/soul.html">
+								<a _href="./html/css/soul/soul.html" target="_blank">
 									<img src="img/work/soul.jpg">
 								</a>
 								<span class="slide">
@@ -390,7 +390,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/css/guokr/guokr.html">
+								<a _href="./html/css/guokr/guokr.html" target="_blank">
 									<img src="img/work/guokr.jpg">
 								</a>
 								<span class="slide">
@@ -399,7 +399,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/css/HEXAGONE/HEXAGONE.html">
+								<a _href="./html/css/HEXAGONE/HEXAGONE.html" target="_blank">
 									<img src="img/work/he.jpg">
 								</a>
 								<span class="slide">
@@ -408,7 +408,7 @@
 								</span>
 							</li>
 							<li>
-								<a _href="html/css/person/person.html">
+								<a _href="./html/css/person/person.html" target="_blank">
 									<img src="img/work/person.jpg">
 								</a>
 								<span class="slide">
@@ -420,6 +420,7 @@
 					</div>
 				</div>
 				<div class="main_list about_me">
+					<h3>About Me</h3>
 					<div class="me_left">
 						<img src="img/phone.png" class="phone">
 						<div class="me_up">

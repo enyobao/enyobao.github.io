@@ -4,10 +4,11 @@
 	list-style: none;
 	color: #fff;
 	font-size: 15px;
-	font-family: 'Macrosoft YaHei';
+	font-family: 'Microsoft YaHei';
 }
 a{
 	text-decoration: none;
+	font-family: 'Microsoft YaHei';
 	color: #eee;
 }
 a img{
@@ -15,12 +16,14 @@ a img{
 }
 b,strong,h1,h2,h3,h4,h5,h6{
 	font-weight: normal;
+	font-family: 'Microsoft YaHei';
 }
 i,em{
 	font-style: normal;
 }
 textarea,input{
 	outline: none;
+	font-family: 'Microsoft YaHei';
 }
 .clearfix:after{
 	display: block;
