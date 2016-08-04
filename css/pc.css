@@ -386,6 +386,9 @@ body{
 	height: 100%;
 	width: 10%;
 }
+.about_me h3{
+	display: none;
+}
 .about_me .resume{
 	position: absolute;
 	left: 10%;
@@ -480,6 +483,7 @@ body{
 	width: 100%;
 }
 .me_left h3{
+	display: block;
 	position: absolute;
 	left:0;
 	top:0;

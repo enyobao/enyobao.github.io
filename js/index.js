@@ -120,6 +120,7 @@ window.onload=window.onresize=function(){
 
 		menu();//菜单－导航项
 		phoneWork();//展示作品－手机端
+		meClick2();//关于我－右侧按钮
 	}
 	//pc端函数
 	function big(width,height){
@@ -139,6 +140,7 @@ window.onload=window.onresize=function(){
 		navClick();//换标签
 		showWorks();//作品展示
 		changeLabel();//选择标签－展示相应作品
+		meClick();//关于我－右侧按钮
 	}
 	function gPos(){
 		var aPos=[];
@@ -602,9 +604,8 @@ function aboutMe(){
 
         oPhoneUl.style.top=iPhoneTop+'px';
 	});
-
-	
-	
+}
+function meClick(){
 	//关于我－右侧按钮
 	oMeA.onclick=function(ev){
 		var oEvent=ev||event;
@@ -623,4 +624,14 @@ function aboutMe(){
 		};
 	};
 }
+function meClick2(){
+	//关于我－右侧按钮
+	oMeA.onclick=function(ev){
+		var oEvent=ev||event;
 
+		oEvent.cancelBubble=true;
+	}
+	oMeP.onclick=function(){
+		window.open('resume.html');
+	};
+}
