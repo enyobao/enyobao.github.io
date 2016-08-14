@@ -53,6 +53,7 @@ var oWorkDiv=oWorksOl.parentNode;
 var oSwork=oWorks.children[2];
 var oFrame=oSwork.children[0];
 var aSlide=getByClass(oWorks,'slide');
+var workLeft=0;
 
 //设置默认显示第一个ul
 var oUlActive=getByClass(oWorks,'active')[0];
@@ -103,9 +104,9 @@ window.onload=window.onresize=function(){
 			change(clientX);
 		}
 		// 共同的函数
-		dynamics(oHomeUl,homeLeft);
-		aboutMe();
-		carousel();//轮播图－－博文展示
+		dynamics(oHomeUl,homeLeft);//首页－行业动态
+		aboutMe();//关于我
+		blog();//博文展示
 	}
 	//手机端函数
 	function change(width){
@@ -272,8 +273,9 @@ function menu(){
 function dynamics(obj,left){
 	obj.innerHTML+=obj.innerHTML;
 	var aHomeLi=obj.children;
+	var w=0;
 	for(var i=0;i<aHomeLi.length;i++){
-		w+=aHomeLi[i].offsetWidth;
+		w+=aHomeLi[i].offsetWidth+(aHomeLi[1].offsetLeft-aHomeLi[0].offsetWidth);
 	}
 	obj.style.width=w+'px';
 
@@ -281,7 +283,7 @@ function dynamics(obj,left){
 	function hTimer(){
 		clearInterval(obj.homeTimer);
 		obj.homeTimer=setInterval(function(){
-			left-=2;
+			left-=1;
 			obj.style.left=left+'px';
 			if(left<=-obj.offsetWidth/2){
 				left=0;
@@ -296,69 +298,6 @@ function dynamics(obj,left){
 	};
 }
 
-/*博文展示－轮播图*/
-function carousel(){
-	var imgWidth=aBlogImg[0].offsetWidth;
-	var imgHeight=aBlogImg[0].offsetHeight;
-	var nBoxWidth=oBlogBox.offsetWidth/2;
-	var nBoxHeight=oBlogBox.offsetHeight;
-	var iblogLeft=0;
-	//初始化
-	oBlogUl.style.width=aBlogLi[0].offsetWidth*(aBlogLi.length)+'px';
-	oBlogUl.style.left=nBoxWidth-(3-0.5)*aBlogLi[0].offsetWidth+'px';
-	setSize();
-
-	dragImg();
-	//拖拽
-	function dragImg(){
-		oBlogUl.onmousedown=function(ev){
-			var oEvent=ev||event;
-
-			var disX=oEvent.clientX-oBlogUl.offsetLeft;
-
-			document.onmousemove=function(ev){
-				var oEvent=ev||event;
-				var left=oEvent.clientX-disX;
-
-				if(left>=nBoxWidth-(1-0.5)*aBlogLi[0].offsetWidth){
-					left=nBoxWidth-(1-0.5)*aBlogLi[0].offsetWidth;
-				}
-				if(left<=nBoxWidth-(aBlogLi.length-0.5)*aBlogLi[0].offsetWidth){
-					left=nBoxWidth-(aBlogLi.length-0.5)*aBlogLi[0].offsetWidth;
-				}
-				oBlogUl.style.left=left+'px';
-
-				setSize();
-			}
-			document.onmouseup=function(){
-				document.onmousemove=null;
-				document.onmouseup=null;
-			}
-			return false;
-		};
-
-	}
-	//改变图片大小
-	function setSize(){
-		for(var i=0;i<aBlogLi.length;i++){
-			//图片中心距离box中心点的距离
-			var c=Math.abs(nBoxWidth-(aBlogLi[i].offsetLeft+aBlogLi[0].offsetWidth/2+oBlogUl.offsetLeft));
-			//比例
-			var scale=1-c/500;//感应数字
-			if(scale<0.5){
-				scale=0.5;
-			}
-			var w=520/358*nBoxHeight;
-			var h=nBoxHeight;
-			//var h=358;
-			aBlogImg[i].style.width=scale*w+'px';
-			aBlogImg[i].style.marginLeft=-(scale*w-imgWidth)/2+'px';
-			aBlogImg[i].style.marginTop=-(scale*h-imgHeight)/2+'px';
-			aBlogLi[i].style.zIndex=scale*1000;
-		}
-	}
-
-}
 /*作品展示页*/
 function showWorks(){
 	sWorks(oUlActive,aLiActive);
@@ -449,7 +388,7 @@ function createDl(length){
 function sWorks(oUl,aLi){
 
 	for(var i=0;i<aLi.length;i++){
-		aLi[i].ondblclick=function(){
+		aLi[i].onclick=function(){
 			bWheel=true;
 			oMask.style.display='block';
 			oSwork.style.display='block';
@@ -474,7 +413,7 @@ function sWorks(oUl,aLi){
 function sWorks2(oUl,aLi){
 
 	for(var i=0;i<aLi.length;i++){
-		aLi[i].ondblclick=function(){
+		aLi[i].onclick=function(){
 			var oA=this.children[0];
 			bWheel=true;
 			window.open(oA.getAttribute('_href'));
@@ -482,7 +421,7 @@ function sWorks2(oUl,aLi){
 	}
 }
 function phoneWork(){
-	drag(aWorksUl[0]);
+	dynamics(oUlActive,workLeft);
 	oUlActive.style.width=aLiActive[0].offsetWidth*aLiActive.length*15/12+'px';
 	sWorks2(oUlActive,aLiActive);
 	//选择(html,javascript,css选项，并展示相应作品)
@@ -497,10 +436,11 @@ function phoneWork(){
 				}
 				addClass(this,'on');
 				addClass(aWorksUl[index],'active');
-				drag(aWorksUl[index]);
 
 				oUlActive=getByClass(oWorks,'active')[0];
 				aLiActive=oUlActive.children;
+
+				dynamics(oUlActive,workLeft);
 
 				oUlActive.style.width=aLiActive[0].offsetWidth*aLiActive.length*15/12+'px';
 
@@ -634,4 +574,29 @@ function meClick2(){
 	oMeP.onclick=function(){
 		window.open('resume.html');
 	};
+}
+/*博文展示*/
+function blog(){
+	var oUl=document.querySelector('#ul1');
+	var aLi=oUl.children;
+	var oLeft=document.querySelectorAll('input')[0];
+	var oRight=document.querySelectorAll('input')[1];
+	var arr=[];
+
+	for(var i=0;i<aLi.length;i++){
+		arr.push(aLi[i].className);
+	}
+
+	oLeft.onclick=function(){
+		arr.unshift(arr.pop());
+		for(var i=0;i<aLi.length;i++){
+			aLi[i].className=arr[i];
+		}
+	}
+	oRight.onclick=function(){
+		arr.push(arr.shift());
+		for(var i=0;i<aLi.length;i++){
+			aLi[i].className=arr[i];
+		}
+	}
 }

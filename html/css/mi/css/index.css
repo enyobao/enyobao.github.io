@@ -16,7 +16,7 @@
 	border: 1px solid #dfdfdf;*/
 }
 .logo{
-	background:url(img/logo.jpg) no-repeat;
+	background:url(../img/logo.jpg) no-repeat;
 	width: 70px;
 	height: 70px;
 	text-indent: -999px;
