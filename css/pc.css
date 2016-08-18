@@ -653,22 +653,29 @@ body{
 	text-align: center;
 	opacity: 0;
 	transition: 1s all linear;
+	z-index: 1;
 }
 .news_box li.cur{
 	opacity: 1;
+	z-index: 9;
+	cursor: pointer;
 }
 .news_box li.l1{
 	opacity: .6;
+	z-index: 8;
 	transform: translate(-250px) rotateY(60deg);
 }
 .news_box li.l2{
+	z-index: 7;
 	transform: translate(-400px) rotateY(80deg);
 }
 .news_box li.r1{
+	z-index: 8;
 	opacity: .6;
 	transform: translate(250px) rotateY(-60deg);
 }
 .news_box li.r2{
+	z-index: 7;
 	transform: translate(400px) rotateY(-80deg);
 }
 .news_box li a{

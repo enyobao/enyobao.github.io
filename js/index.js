@@ -577,10 +577,10 @@ function meClick2(){
 }
 /*博文展示*/
 function blog(){
-	var oUl=document.querySelector('#ul1');
+	var oUl=document.getElementById('ul1');
 	var aLi=oUl.children;
-	var oLeft=document.querySelectorAll('input')[0];
-	var oRight=document.querySelectorAll('input')[1];
+	var oLeft=document.getElementsByTagName('input')[0];
+	var oRight=document.getElementsByTagName('input')[1];
 	var arr=[];
 
 	for(var i=0;i<aLi.length;i++){
